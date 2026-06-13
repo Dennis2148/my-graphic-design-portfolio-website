@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>DENNIS MUSYOKA | Graphic Designer</title>
+  <style>
+    /* ---------- RESET & BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ffffff;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      color: #18181b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* modern container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ----- navigation (sticky, clean) ----- */
+    .navbar {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid #eef2f6;
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #171717, #3b3b3b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3f3f46;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #000000;
+    }
+
+    /* sections */
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid #f0f2f5;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+      display: inline-block;
+      border-left: 5px solid #000;
+      padding-left: 1rem;
+    }
+
+    /* ----- HERO / LANDING ----- */
+    .hero {
+      text-align: center;
+      padding: 4rem 0 2.5rem 0;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #111, #2c2c2c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-tag {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #4b5563;
+      margin-bottom: 1rem;
+    }
+
+    .hero-desc {
+      max-width: 580px;
+      margin: 0 auto;
+      color: #5b5b6b;
+      font-size: 1rem;
+    }
+
+    /* ----- PORTFOLIO GRID (at least 20 items) ----- */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .portfolio-card {
+      background: #ffffff;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
+      transition: all 0.25s ease;
+      border: 1px solid #f0f0f0;
+      height: 500px;
+      width: 350px;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+      border-color: #eaeef5;
+    }
+
+    /* image style — ready for your own image links */
+    .portfolio-card img {
+      width: 100%;
+      
+      object-fit: cover;
+      display: block;
+      background-color: #f5f7fb;
+    }
+
+    .card-content {
+      padding: 1.2rem 1.2rem 1.4rem;
+    }
+
+    .card-content h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      letter-spacing: -0.2px;
+    }
+
+    .card-content p {
+      font-size: 0.85rem;
+      color: #5c5f6e;
+      line-height: 1.45;
+    }
+
+    /* ----- CONTACT SECTION (email + socials) ----- */
+    .contact-wrapper {
+      background: #fafafc;
+      border-radius: 2rem;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border: 1px solid #edf0f5;
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #ffffff;
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      margin: 1.2rem 0;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #111;
+      text-decoration: none;
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    .contact-email:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.4rem;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: #2d3a4b;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      border-bottom: 1px dotted transparent;
+    }
+
+    .social-links a:hover {
+      color: #000;
+      border-bottom: 1px dotted #000;
+    }
+
+    /* footer */
+    .footer {
+      text-align: center;
+      padding: 2rem 0 2.5rem;
+      font-size: 0.8rem;
+      color: #6c727f;
+    }
+
+    /* responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .navbar {
+        padding: 1rem 0;
+      }
+      .nav-flex {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .nav-links {
+        gap: 1.8rem;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero-tag {
+        font-size: 1.1rem;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+      .portfolio-grid {
+        gap: 1.2rem;
+      }
+      section {
+        padding: 3rem 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-wrapper {
+        padding: 1.8rem;
+      }
+    }
+     .cont{
+        text-align: center;
+       }
+
+        .contacts{
+            
+            height: 300px;
+            background-color: #726565;
+            color: #fff;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            }
+
+        .maincontbox{
+            margin-bottom: 6px;
+            justify-items: center;
+           }
+
+      .form-container{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #726565;
+    display: block;
+    
+  
+}
+
+.form-container input, .form-container textarea, .form-container button{
+    width: 450px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid linear gradient(#f9ca24 #cf1e1e #007bff #2bbe1e);
+    border-radius: 5px;
+}
+
+.form-container button{
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.form-container button:hover{
+    background-color: #0056b3;
+}
+  .logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-flex">
+    <div class="logo"><img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/MY%20DM%20LOGO%20(2).png?raw=true" alt="Logo"></div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- ========== HOME / LANDING ========== -->
+  <section id="home">
+    <div class="container hero">
+      <h1>Dennis Musyoka</h1>
+      <div class="hero-tag">Graphic Designer</div>
+      <p class="hero-desc">Visual storyteller focused on identity, typography, and clarity.<br> I build distinctive brands and timeless design systems.</p>
+    </div>
+  </section>
+
+  <!-- ========== PORTFOLIO / WORK (20+ images with manual links) ========== -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-title">Selected work</div>
+      <div class="portfolio-grid">
+        
+       
+
+        <!-- PROJECT 1 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/208544.jpg?raw=true" alt="Brand identity project preview">
+          
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/222382.jpg?raw=true" alt="Editorial design">
+          
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/JAKIMO%20COMPANY%20POSTER.png?raw=true" alt="Poster series">
+          
+        </div>
+
+        <!-- PROJECT 4 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/BARBER%20SHOP%20POSTER.png?raw=true">
+         
+        </div>
+
+        <!-- PROJECT 5 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/Denntoz%20car%20imports%20alt%201.png?raw=true" >
+          
+        </div>
+
+        <!-- PROJECT 6 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/ARCITECTURAL%20POSTER1.png?raw=true" >
+         
+        </div>
+
+        <!-- PROJECT 7 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/PASTA%20PALACE%20RESTURANT%20POSTER.png?raw=true">
+          
+        </div>
+
+        <!-- PROJECT 8 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/construction%20company%20poster%202.png?raw=true" >
+          
+        </div>
+
+        <!-- PROJECT 9 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/SAFARI%20RALLY%20POSTER.png?raw=true" >
+          
+        </div>
+
+        <!-- PROJECT 10 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/DAIRY%20POSTER.png?raw=true" >
+         
+        </div>
+
+        <!-- PROJECT 11 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/226397.jpg?raw=true" >
+          
+        </div>
+
+        <!-- PROJECT 12 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/220862.jpg?raw=true" >
+         
+        </div>
+
+        <!-- PROJECT 13 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/210066.jpg?raw=true" >
+         
+        </div>
+
+        <!-- PROJECT 14 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/210065.jpg?raw=true" >
+          
+        </div>
+
+        <!-- PROJECT 15 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/210064.jpg?raw=true" >
+          
+        </div>
+
+        <!-- PROJECT 16 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/205163.jpg?raw=true" >
+          
+        </div>
+
+         <!-- PROJECT 17 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/AMBOSELI%20ADVENTURE%20POSTER.png?raw=true" >
+          
+        </div>
+
+
+          <!-- PROJECT 18 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/DENNTOZ%20TRAVELS%20TSAVO.png?raw=true" >
+          
+        </div>
+
+          <!-- PROJECT 19 -->
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/NAIL%20SPA%20PRICE%20LIST%20POSTER.png?raw=true" >
+          
+        </div>
+
+          <!-- PROJECT 20 --> 
+        <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/PIZZA%20JOINT%20POSTER.png?raw=true" >
+          
+        </div>
+
+          <!-- PROJECT 21 -->
+         <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/BOTTLE%20WRAP%20POSTER.png?raw=true" >
+          
+        </div>
+
+         <!-- PROJECT 22 -->
+         <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/BOTTLE%20WRAP%20FINAL%20DESIGN.png?raw=true" >
+          
+        </div>
+
+          <!-- PROJECT 23 -->
+         <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/COOL%20BLACK%20ORG%20LOGO%20AI.png?raw=true" >
+          
+        </div>
+
+
+          <!-- PROJECT 24 -->
+         <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/RANDOM%20AS%20LOGO%20PERFECT.png?raw=true" >
+          
+        </div>
+
+          <!-- PROJECT 25 -->
+         <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/Nila%20baby%20shop%20logo%20trial%201.png?raw=true" >
+          
+        </div>
+
+              <!-- PROJECT 26 -->
+         <div class="portfolio-card">
+          <img src="https://github.com/Dennis2148/GD-PORTFOLIO/blob/main/MY%20DM%20LOGO%20CONSULTANT%20COMPANY.png?raw=true" >
+          
+        </div>
+
+        </div>
+
+        
+      </div>
+      <p style="text-align:center; font-size:0.75rem; color:#7c7f8c; margin-top:2rem; border-top:1px solid #edf2f7; padding-top:1.5rem;">>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT SECTION ========== -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">Let’s work together</div>
+      <div class="contact-wrapper">
+        <div style="margin-bottom:0.25rem;">Have a project in mind? Reach out —</div>
+       <section class="contacts" id="contacts">
+    
+    <div class="maincontbox">
+        <h2>E-mail: dennixmusyoka1@gmail.com</h2>  
+    <h2><a class="fas fa-phone"></a><a href="tel:+254716975570">+254-716-975-570</a> </h2>
+   
+        </div>
+
+    </div>
+    
+
+</section>
+        
+       
+      </div>
+    </div>
+  </section>
+</main>
+
+
+</body>
+</html>
+    
+
+  <!-- Contact Section -->
+    <span class="cont"><h1>CONTACTS</h1></span>
+<form action="https://formspree.io/f/myzwzlgk" method="post">   
+<div class="form-container">
+    <h2>Send an E-mail</h2>
+    <div id="emailform">
+        
+           
+            <input type="text" name="Name" placeholder="Name">
+         
+           
+            <input type="email" name="E-mail" placeholder="E-mail">
+          
+           
+            <input type="text" name="Subject" placeholder="Subject" required>
+          
+           
+            <textarea name="Message" rows="5" placeholder="Message"></textarea>
+          
+          
+          <button type="submit">Send</button>
+    </div>
+    </form>
+</div>
+</body>
+</html>
+
+
+
+
+
